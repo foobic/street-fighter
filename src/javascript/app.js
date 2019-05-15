@@ -9,7 +9,7 @@ class App {
 
   static rootElement = document.getElementById('root');
 
-  static loadingElement = document.getElementById('loading-overlay');
+  static loadingElement = document.getElementsByClassName('loading-overlay')[0];
 
   async startApp() {
     try {
