@@ -45,7 +45,17 @@ body {
   height: 260px;
 }
 
+@keyframes scale-overlay-animation {
+  0% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 #loading-overlay {
+  visibility: hidden;
   position: absolute;
   top: 0;
   left: 0;
@@ -57,20 +67,14 @@ body {
   flex-direction: column;
   font-size: 18px;
   background: rgba(255, 255, 255, 0.7);
-  visibility: hidden;
-  img {
-    width: 100%;
-    animation: animateThis 1s infinite alternate;
-  }
 }
 
-@keyframes animateThis {
-  0% {
-    transform: scale(1.2);
-  }
-  100% {
-    transform: scale(1);
-  }
+.loader-overlay-logo {
+  display: block;
+  width: 300px;
+  height: 148px;
+  animation: scale-overlay-animation 1s infinite alternate;
+  background: url('../../resources/logo.png') no-repeat;
 }
 
 @keyframes toggle-overlay-animation {
