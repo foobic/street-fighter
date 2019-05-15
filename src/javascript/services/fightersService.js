@@ -13,6 +13,7 @@ class FighterService {
   }
 
   async getFighterDetails(_id) {
+    console.log(_id);
     // implement this method
     // endpoint - `details/fighters/${_id}.json`;
   }

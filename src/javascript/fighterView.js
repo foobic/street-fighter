@@ -14,11 +14,18 @@ class FighterView extends View {
 
     this.element = this.createElement({ tagName: 'div', className: 'fighter' });
     this.element.append(imageElement, nameElement);
-    this.element.addEventListener('click', event => handleClick(event, fighter), false);
+    this.element.addEventListener(
+      'click',
+      event => handleClick(event, fighter),
+      false,
+    );
   }
 
   createName(name) {
-    const nameElement = this.createElement({ tagName: 'span', className: 'name' });
+    const nameElement = this.createElement({
+      tagName: 'span',
+      className: 'name',
+    });
     nameElement.innerText = name;
 
     return nameElement;
@@ -29,7 +36,7 @@ class FighterView extends View {
     const imgElement = this.createElement({
       tagName: 'img',
       className: 'fighter-image',
-      attributes
+      attributes,
     });
 
     return imgElement;

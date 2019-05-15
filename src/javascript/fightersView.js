@@ -4,7 +4,7 @@ import FighterView from './fighterView';
 class FightersView extends View {
   constructor(fighters) {
     super();
-    
+
     this.handleClick = this.handleFighterClick.bind(this);
     this.createFighters(fighters);
   }
@@ -17,13 +17,16 @@ class FightersView extends View {
       return fighterView.element;
     });
 
-    this.element = this.createElement({ tagName: 'div', className: 'fighters' });
+    this.element = this.createElement({
+      tagName: 'div',
+      className: 'fighters',
+    });
     this.element.append(...fighterElements);
   }
 
   handleFighterClick(event, fighter) {
     this.fightersDetailsMap.set(fighter._id, fighter);
-    console.log('clicked')
+    console.log('clicked');
     // get from map or load info and add to fightersMap
     // show modal with fighter info
     // allow to edit health and power in this modal

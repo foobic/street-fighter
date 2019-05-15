@@ -12,6 +12,7 @@
   "rules": {
     "no-new": "off",
     "class-methods-use-this": "off",
+    "no-underscore-dangle": "off",
     "import/no-named-as-default": 0,
     "import/prefer-default-export": 0,
     "jsx-a11y/href-no-hash": ["off"],
