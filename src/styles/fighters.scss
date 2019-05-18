@@ -1,8 +1,11 @@
 .fighters {
   display: grid;
 
-  grid-template-columns: 1fr 1fr 1fr;
-  padding: 0 15px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  padding: 50px 15px;
+  @media (max-width: 1300px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
   @media (max-width: 750px) {
     grid-template-columns: 1fr 1fr;
   }
