@@ -10,6 +10,8 @@ class App {
 
   static rootElement = document.getElementById('root');
 
+  static fightersWrapperElement = document.getElementById('fighters-wrapper');
+
   static loadingElement = document.getElementsByClassName('loading-overlay')[0];
 
   async startApp() {
@@ -21,7 +23,7 @@ class App {
 
       const fightersElement = fightersView.element;
 
-      App.rootElement.appendChild(fightersElement);
+      App.fightersWrapperElement.appendChild(fightersElement);
       // await wait(3000);
       await waitImagesLoading();
     } catch (error) {
