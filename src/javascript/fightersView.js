@@ -1,5 +1,6 @@
 import View from './view';
 import FighterView from './fighterView';
+import { fighterService } from './services/fightersService';
 
 class FightersView extends View {
   constructor(fighters) {
@@ -11,9 +12,12 @@ class FightersView extends View {
 
   fightersDetailsMap = new Map();
 
+  fightersViews = new Map();
+
   createFighters(fighters) {
     const fighterElements = fighters.map(fighter => {
       const fighterView = new FighterView(fighter, this.handleClick);
+      this.fightersViews.set(fighter._id, fighterView);
       return fighterView.element;
     });
 
@@ -24,12 +28,23 @@ class FightersView extends View {
     this.element.append(...fighterElements);
   }
 
-  handleFighterClick(event, fighter) {
-    this.fightersDetailsMap.set(fighter._id, fighter);
-    console.log('clicked');
-    // get from map or load info and add to fightersMap
-    // show modal with fighter info
-    // allow to edit health and power in this modal
+  async _getFighterDetails(fighter) {
+    if (this.fightersDetailsMap.has(fighter._id))
+      return this.fightersDetailsMap.get(fighter._id);
+
+    const fighterDetails = await fighterService.getFighterDetails(fighter._id);
+    this.fightersDetailsMap.set(fighter._id, fighterDetails);
+    return fighterDetails;
+  }
+
+  async handleFighterClick(event, fighter) {
+    try {
+      const fighterDetails = await this._getFighterDetails(fighter);
+      const fighterView = this.fightersViews.get(fighter._id);
+      fighterView.showModal(fighterDetails);
+    } catch (error) {
+      console.warn(error);
+    }
   }
 }
 

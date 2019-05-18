@@ -1,4 +1,7 @@
 import View from './view';
+import { initModal } from './modal';
+
+const modal = initModal();
 
 class FighterView extends View {
   constructor(fighter, handleClick) {
@@ -33,13 +36,23 @@ class FighterView extends View {
 
   createImage(source) {
     const attributes = { src: source };
+    const imgWrapper = this.createElement({
+      tagName: 'div',
+      className: 'fighter-image-wrapper',
+    });
     const imgElement = this.createElement({
       tagName: 'img',
       className: 'fighter-image',
       attributes,
     });
+    imgWrapper.appendChild(imgElement);
 
-    return imgElement;
+    return imgWrapper;
+  }
+
+  showModal(fighter) {
+    modal.changeFighter(fighter);
+    modal.show();
   }
 }
 

@@ -14,3 +14,16 @@ body {
   height: 100%;
   width: 100%;
 }
+
+.showRoot {
+  display: grid !important;
+  animation: showRoot-animation 0.5s forwards;
+}
+@keyframes showRoot-animation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

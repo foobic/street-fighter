@@ -1,6 +1,7 @@
 import FightersView from './fightersView';
 import { fighterService } from './services/fightersService';
-import { wait } from './helpers/helper';
+import { wait, waitImagesLoading } from './helpers/helper';
+import Fighter from './fighter';
 
 class App {
   constructor() {
@@ -16,11 +17,13 @@ class App {
       App.loadingElement.classList.toggle('toggle-overlay');
 
       const fighters = await fighterService.getFighters();
-      await wait(3000);
       const fightersView = new FightersView(fighters);
+
       const fightersElement = fightersView.element;
 
       App.rootElement.appendChild(fightersElement);
+      await wait(3000);
+      await waitImagesLoading();
     } catch (error) {
       console.warn(error);
       App.rootElement.innerText = 'Failed to load data';

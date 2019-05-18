@@ -1,0 +1,82 @@
+.modal {
+  display: block !important;
+  visibility: hidden;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transform: scale(1.1);
+  transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 1rem 1.5rem;
+  min-width: 15rem;
+  border-radius: 0.5rem;
+}
+.show-modal {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.control-buttons {
+  margin-top: 10px;
+  button {
+    cursor: pointer;
+    text-align: center;
+    color: white;
+    width: 100%;
+    border-radius: 5px;
+    padding: 5px;
+    border: none;
+  }
+
+  .close-button-wrapper,
+  .save-button-wrapper {
+    margin-top: 5px;
+    max-width: 80%;
+    margin: 5px auto;
+  }
+
+  .close-button-wrapper {
+    button {
+      background: red;
+    }
+  }
+  .save-button-wrapper {
+    button {
+      background: green;
+    }
+  }
+}
+.fighter-container {
+  padding: 10px 20px;
+
+  label {
+    display: inline-block;
+    text-align: right;
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+  input,
+  input:focus {
+    border: none;
+    outline: 0;
+    font-size: 1.2em;
+    float: right;
+    width: 40px;
+  }
+}
+
+#fighter-name {
+  text-align: center;
+}
