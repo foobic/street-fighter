@@ -11,12 +11,12 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  // height: 100%;
   width: 100%;
 }
 
 .showRoot {
-  display: grid !important;
+  display: flex !important;
   animation: showRoot-animation 0.5s forwards;
 }
 @keyframes showRoot-animation {

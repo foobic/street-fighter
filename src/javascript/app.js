@@ -22,7 +22,7 @@ class App {
       const fightersElement = fightersView.element;
 
       App.rootElement.appendChild(fightersElement);
-      await wait(3000);
+      // await wait(3000);
       await waitImagesLoading();
     } catch (error) {
       console.warn(error);
