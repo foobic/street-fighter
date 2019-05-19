@@ -3,11 +3,26 @@
   justify-content: center;
   height: 100%;
   align-items: center;
+  &-fighters {
+    display: flex;
+    img {
+      height: 300px;
+    }
+    &-left {
+      margin-right: 50px;
+    }
+    &-right {
+      &--img {
+        transform: scaleX(-1);
+      }
+    }
+  }
 }
 
-.leftFighter {
-  margin-right: 50px;
+.show-arena {
+  display: flex !important;
 }
-.rightFighter {
-  transform: scaleX(-1);
+
+.hide-arena {
+  display: none;
 }

@@ -4,8 +4,8 @@
 export const initModal = function initModal() {
   // All needed DOM references
   const modal = document.querySelector('.modal');
-  const closeBtn = document.querySelector('.modal-close-button');
-  const saveBtn = document.querySelector('.modal-save-button');
+  const closeBtn = document.querySelector('.modal-controls-close');
+  const saveBtn = document.querySelector('.modal-controls-save');
 
   const fighterContainer = {
     name: document.getElementById('fighter-name'),

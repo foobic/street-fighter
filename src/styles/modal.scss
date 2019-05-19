@@ -10,17 +10,18 @@
   opacity: 0;
   transform: scale(1.1);
   transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+  &-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 1rem 1.5rem;
+    min-width: 15rem;
+    border-radius: 0.5rem;
+  }
 }
-.modal-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: white;
-  padding: 1rem 1.5rem;
-  min-width: 15rem;
-  border-radius: 0.5rem;
-}
+
 .show-modal {
   opacity: 1;
   visibility: visible;
@@ -28,7 +29,7 @@
   transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
 }
 
-.control-buttons {
+.modal-controls {
   margin-top: 10px;
   button {
     cursor: pointer;
@@ -42,43 +43,38 @@
     font-weight: bold;
   }
 
-  .close-button-wrapper,
-  .save-button-wrapper {
+  &-container {
     margin-top: 5px;
     max-width: 80%;
     margin: 5px auto;
   }
 
-  .close-button-wrapper {
-    button {
-      background: red;
-    }
+  &-close {
+    background: red;
   }
-  .save-button-wrapper {
-    button {
-      background: green;
-    }
-  }
-}
-.fighter-container {
-  padding: 10px 20px;
-
-  label {
-    display: inline-block;
-    text-align: right;
-    font-weight: bold;
-    font-size: 1.2em;
-  }
-  input,
-  input:focus {
-    border: none;
-    outline: 0;
-    font-size: 1.2em;
-    float: right;
-    width: 40px;
+  &-save {
+    background: green;
   }
 }
 
-#fighter-name {
+.modal-fighter {
   text-align: center;
+  &--property {
+    padding: 10px 20px;
+
+    label {
+      display: inline-block;
+      text-align: right;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+    input,
+    input:focus {
+      border: none;
+      outline: 0;
+      font-size: 1.2em;
+      float: right;
+      width: 40px;
+    }
+  }
 }

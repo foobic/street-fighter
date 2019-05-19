@@ -1,4 +1,4 @@
-.fighters-wrapper {
+.fighters-container {
   padding: 50px 15px;
 }
 
@@ -15,25 +15,24 @@
   @media (max-width: 500px) {
     grid-template-columns: 1fr;
   }
-}
 
-.fighter {
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  text-align: center;
-  &:hover {
-    box-shadow: 0 0 50px 10px rgba(0, 0, 0, 0.06);
-    cursor: pointer;
+  .fighter {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    text-align: center;
+    &:hover {
+      box-shadow: 0 0 50px 10px rgba(0, 0, 0, 0.06);
+      cursor: pointer;
+    }
+    &-image {
+      height: 260px;
+    }
+    .name {
+      align-self: center;
+      font-size: 21px;
+      margin-top: 20px;
+      font-weight: bold;
+    }
   }
-  &-image {
-    height: 260px;
-  }
-}
-
-.fighter .name {
-  align-self: center;
-  font-size: 21px;
-  margin-top: 20px;
-  font-weight: bold;
 }

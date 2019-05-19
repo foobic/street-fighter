@@ -11,18 +11,27 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div class="arena">
-      <div class="leftFighter"></div>
-      <div class="rightFighter"></div>
-    </div>
-    <div id="root" style="display: none;">
-      <div class="selectplayer">
-        <div class="selectplayer-text">
-          <span>Select Fighters</span>
+
+    <!-- Start Arena-->
+    <div class="arena" style="display: none;">
+      <div class="arena-fighters">
+        <div class="arena-fighters-left">
+          <div class="arena-fighters-left--img"></div>
         </div>
-        <div class="selectplayer-controls">
-          <div class="left">
-            <select class="select-css" id="left-fighter-select">
+        <div class="arena-fighters-right">
+          <div class="arena-fighters-right--img"></div>
+        </div>
+      </div>
+    </div>
+    <!-- End Arena-->
+
+    <!-- Start Main -->
+    <div class="main" style="display: none;">
+      <div class="fighters-choice">
+        <div class="fighters-choice--text"><span>Select Fighters</span></div>
+        <div class="fighters-choice--select select-player">
+          <div class="select-player--left">
+            <select class="left-fighter-select">
               <option value="1">Ryo</option>
               <option value="2">Dhalsim</option>
               <option value="3">Guile</option>
@@ -31,11 +40,9 @@
               <option value="6">Bison</option>
             </select>
           </div>
-          <div class="versus">
-            <h1>VS</h1>
-          </div>
-          <div class="right">
-            <select class="select-css" id="right-fighter-select">
+          <div class="select-player--versus"><span>VS</span></div>
+          <div class="select-player--left">
+            <select class="right-fighter-select">
               <option value="6">Bison</option>
               <option value="5">Ken</option>
               <option value="4">Zangief</option>
@@ -47,22 +54,28 @@
         </div>
       </div>
 
-      <div id="fighters-wrapper"></div>
+      <div class="fighters-container"></div>
 
-      <div class="fightbtn-wrapper">
-        <button class="fightbtn">Fight</button>
+      <div class="fight-button-container">
+        <button class="fight-button">Fight</button>
       </div>
     </div>
+    <!-- End Main -->
+
+    <!-- Start Loading Overlay -->
     <div class="loading-overlay">
-      <div class="loading-overlay-logo"></div>
-      <div class="loader-wrapper">
-        <div class="loader"></div>
-      </div>
+      <div class="loading-overlay--logo"></div>
+      <div class="loader"></div>
     </div>
+    <!-- End Loading Overlay -->
+
+    <!-- Start Modal -->
     <div class="modal" style="display:none;">
-      <div class="modal-content">
-        <h1 id="fighter-name">FighterName</h1>
-        <div class="fighter-container">
+      <div class="modal-content modal-fighter">
+        <div class="modal-fighter--name">
+          <h1 id="fighter-name">FighterName</h1>
+        </div>
+        <div class="modal-fighter--property">
           <label for="fighter-health">Health</label>
           <input
             type="number"
@@ -72,11 +85,11 @@
             max="100"
           />
         </div>
-        <div class="fighter-container">
+        <div class="modal-fighter--property">
           <label for="fighter-attack">Attack</label>
           <input type="number" id="fighter-attack" value="0" min="1" max="10" />
         </div>
-        <div class="fighter-container">
+        <div class="modal-fighter--property">
           <label for="fighter-defense">Defense</label>
           <input
             type="number"
@@ -86,16 +99,18 @@
             max="10"
           />
         </div>
-        <div class="control-buttons">
-          <div class="save-button-wrapper">
-            <button class="modal-save-button">Save</button>
+        <div class="modal-controls">
+          <div class="modal-controls-container">
+            <button class="modal-controls-save">Save</button>
           </div>
-          <div class="close-button-wrapper">
-            <button class="modal-close-button">Close</button>
+          <div class="modal-controls-container">
+            <button class="modal-controls-close">Close</button>
           </div>
         </div>
       </div>
     </div>
+    <!-- End Modal -->
+
     <script src="dist/bundle.js"></script>
   </body>
 </html>

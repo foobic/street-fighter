@@ -1,11 +1,18 @@
+import { wait } from './helpers/helper';
+
 class View {
   element;
 
-  static rootElement = document.getElementById('root');
+  static layouts = {
+    main: document.querySelector('.main'),
+    arena: document.querySelector('.arena'),
+  };
 
-  static fightersWrapperElement = document.getElementById('fighters-wrapper');
+  static containers = {
+    fighters: document.querySelector('.fighters-container'),
+  };
 
-  static loadingElement = document.getElementsByClassName('loading-overlay')[0];
+  static loadingOverlay = document.querySelector('.loading-overlay');
 
   createElement({ tagName, className = '', attributes = {} }) {
     const element = document.createElement(tagName);
@@ -15,6 +22,34 @@ class View {
     );
 
     return element;
+  }
+
+  static hideAll() {
+    View.layouts.main.classList.remove('show-main');
+    View.layouts.arena.classList.remove('show-arena');
+    View.layouts.main.classList.add('hide-main');
+    View.layouts.arena.classList.add('hide-arena');
+  }
+
+  static showArena() {
+    View.layouts.arena.classList.remove('hide-arena');
+    View.layouts.arena.classList.add('show-arena');
+  }
+
+  static showMain() {
+    View.layouts.main.classList.remove('hide-main');
+    View.layouts.main.classList.add('show-main');
+  }
+
+  static toggleLoadingOverlay() {
+    View.loadingOverlay.classList.toggle('toggle-overlay');
+  }
+
+  static switchLayout(layoutName) {
+    View.hideAll();
+
+    if (layoutName === 'arena') View.showArena();
+    else if (layoutName === 'main') View.showMain();
   }
 }
 

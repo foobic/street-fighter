@@ -12,8 +12,8 @@ class FightersView extends View {
     this.handleFightClick = this.handleFightClick.bind(this);
     this.createFighters(fighters);
 
-    const fightbtn = document.getElementsByClassName('fightbtn')[0];
-    fightbtn.addEventListener('click', this.handleFightClick);
+    const fightBtn = document.querySelector('.fight-button');
+    fightBtn.addEventListener('click', this.handleFightClick);
   }
 
   fightersDetailsMap = new Map();
@@ -55,12 +55,13 @@ class FightersView extends View {
 
   async handleFightClick() {
     try {
-      const leftFighterSelect = document.getElementById('left-fighter-select');
+      const leftFighterSelect = document.querySelector('.left-fighter-select');
+      const rightFighterSelect = document.querySelector(
+        '.right-fighter-select',
+      );
+
       const leftFighterId =
         leftFighterSelect.options[leftFighterSelect.selectedIndex].value;
-      const rightFighterSelect = document.getElementById(
-        'right-fighter-select',
-      );
       const rightFighterId =
         rightFighterSelect.options[rightFighterSelect.selectedIndex].value;
 

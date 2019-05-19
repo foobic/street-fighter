@@ -6,7 +6,7 @@ body {
   padding: 0;
 }
 
-#root {
+.main {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,15 +14,10 @@ body {
   width: 100%;
 }
 
-.showRoot {
+.show-main {
   display: flex !important;
-  animation: showRoot-animation 0.5s forwards;
 }
-@keyframes showRoot-animation {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+
+.hide-main {
+  display: none;
 }

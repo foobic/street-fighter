@@ -10,36 +10,36 @@ class ArenaView extends View {
   }
 
   async initArena() {
-    View.rootElement.classList.remove('showRoot');
-    // View.loadingElement.classList.toggle('toggle-overlay');
+    View.toggleLoadingOverlay();
     this.createFighters();
-    // await wait(2000);
-    // View.loadingElement.classList.toggle('toggle-overlay');
+    View.hideAll();
+    await wait(2000);
+    View.switchLayout('arena');
+    View.toggleLoadingOverlay();
   }
 
   createImage(source) {
     const attributes = { src: source };
-    const imgWrapper = this.createElement({
-      tagName: 'div',
-      className: 'fighter-image-wrapper',
-    });
     const imgElement = this.createElement({
       tagName: 'img',
       className: 'fighter-image',
       attributes,
     });
-    imgWrapper.appendChild(imgElement);
 
-    return imgWrapper;
+    return imgElement;
   }
 
   createFighters() {
-    const leftFighterWrapper = document.querySelector('.leftFighter');
-    const rightFighterWrapper = document.querySelector('.rightFighter');
+    const leftFighterContainer = document.querySelector(
+      '.arena-fighters-left--img',
+    );
+    const rightFighterContainer = document.querySelector(
+      '.arena-fighters-right--img',
+    );
     const leftImg = this.createImage(this.leftFighter.source);
     const rightImg = this.createImage(this.rightFighter.source);
-    leftFighterWrapper.appendChild(leftImg);
-    rightFighterWrapper.appendChild(rightImg);
+    leftFighterContainer.appendChild(leftImg);
+    rightFighterContainer.appendChild(rightImg);
   }
 }
 
