@@ -1,6 +1,6 @@
 import FightersView from './fightersView';
 import { fighterService } from './services/fightersService';
-import { wait, waitImagesLoading } from './helpers/helper';
+import { wait } from './helpers/helper';
 import View from './view';
 
 class App {
