@@ -77,12 +77,14 @@ class FightersView extends View {
         leftFighterDetails.health,
         leftFighterDetails.attack,
         leftFighterDetails.defense,
+        leftFighterDetails.source,
       );
       const rightFighter = new Fighter(
         rightFighterDetails.name,
         rightFighterDetails.health,
         rightFighterDetails.attack,
         rightFighterDetails.defense,
+        rightFighterDetails.source,
       );
 
       const arena = new Arena(leftFighter, rightFighter);

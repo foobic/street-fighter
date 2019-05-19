@@ -1,0 +1,13 @@
+.arena {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  align-items: center;
+}
+
+.leftFighter {
+  margin-right: 50px;
+}
+.rightFighter {
+  transform: scaleX(-1);
+}
