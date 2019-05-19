@@ -3,22 +3,66 @@
   justify-content: center;
   height: 100%;
   align-items: center;
+  flex-direction: column;
+
   &-fighters {
+    margin: 0 auto;
     display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: center;
+    margin-top: 30px;
+    &-name {
+      width: 50%;
+      text-align: center;
+      div {
+        width: 50%;
+      }
+      display: flex;
+      span {
+        font-size: 2em;
+        font-weight: bold;
+      }
+    }
+    &-health {
+      margin-top: 30px;
+      width: 50%;
+      text-align: center;
+      div {
+        width: 50%;
+      }
+      display: flex;
+      span {
+        font-size: 2em;
+        font-weight: bold;
+      }
+    }
     img {
       height: 300px;
+      padding: 10px;
+      border-radius: 10px;
     }
     &-left {
-      margin-right: 50px;
+      width: 25%;
+      box-sizing: border-box;
+      &--img {
+        float: right;
+        padding-right: 50px;
+      }
     }
     &-right {
+      width: 25%;
+      box-sizing: border-box;
       &--img {
+        float: left;
+        padding-right: 50px;
         transform: scaleX(-1);
       }
     }
   }
 }
 
+// Show / Hide arena
 .show-arena {
   display: flex !important;
 }
@@ -26,3 +70,100 @@
 .hide-arena {
   display: none;
 }
+
+// punch
+
+.punch {
+  animation: punch-animation 1s alternate forwards;
+}
+@keyframes punch-animation {
+  0% {
+    padding-right: 50px;
+  }
+  50% {
+    padding-right: 10px;
+  }
+  100% {
+    padding-right: 50px;
+  }
+}
+
+.damaged {
+  animation: damaged-animation 1s alternate forwards;
+}
+
+@keyframes damaged-animation {
+  0% {
+    background: white;
+  }
+  50% {
+    background: #fd20209c;
+  }
+  100% {
+    background: white;
+  }
+}
+
+// left-fighter-punch
+// .left-fighter-punch {
+//   animation: left-fighter-punch-animation 1s alternate forwards;
+// }
+// @keyframes left-fighter-punch-animation {
+//   0% {
+//     padding-right: 100px;
+//   }
+//   50% {
+//     padding-right: 50px;
+//   }
+//   100% {
+//     padding-right: 100px;
+//   }
+// }
+
+// .rigth-fighter-damaged {
+//   animation: rigth-fighter-damaged-animation 1s alternate forwards;
+// }
+
+// @keyframes rigth-fighter-damaged-animation {
+//   0% {
+//     background: white;
+//   }
+//   50% {
+//     background: #fd20209c;
+//   }
+//   100% {
+//     background: white;
+//   }
+// }
+
+// // right-fighter-punch
+// .right-fighter-punch {
+//   animation: right-fighter-punch-animation 1s alternate forwards;
+// }
+// @keyframes right-fighter-punch-animation {
+//   0% {
+//     padding-right: 100px;
+//   }
+//   50% {
+//     padding-right: 50px;
+//   }
+//   100% {
+//     padding-right: 100px;
+//   }
+// }
+
+// .left-fighter-damaged {
+//   animation: left-fighter-damaged-animation 1s alternate forwards;
+// }
+
+// @keyframes left-fighter-damaged-animation {
+//   0% {
+//     background: white;
+//   }
+//   50% {
+//     background: #fd20209c;
+//   }
+//   100% {
+//     background: white;
+//   }
+// }

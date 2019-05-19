@@ -19,12 +19,14 @@ class App {
       const fightersElement = fightersView.element;
 
       View.containers.fighters.appendChild(fightersElement);
-      await wait(2000);
+      await wait(300);
       View.switchLayout('main');
-      View.toggleLoadingOverlay();
     } catch (error) {
       console.warn(error);
+      View.switchLayout('main');
       View.layouts.main.innerText = 'Failed to load data';
+    } finally {
+      View.toggleLoadingOverlay();
     }
   }
 }

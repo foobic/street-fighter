@@ -7,13 +7,61 @@ class ArenaView extends View {
     this.leftFighter = leftFighter;
     this.rightFighter = rightFighter;
     this.initArena();
+    this.leftFighterImgContainer = document.querySelector(
+      '.arena-fighters-left--img',
+    );
+    this.rightFighterImgContainer = document.querySelector(
+      '.arena-fighters-right--img',
+    );
+    [this.leftFighterImg] = this.leftFighterImgContainer.children;
+    [this.rightFighterImg] = this.rightFighterImgContainer.children;
+    [this.leftFighterNameElement] = document.querySelector(
+      '.arena-fighters-name--left',
+    ).children;
+    [this.rightFighterNameElement] = document.querySelector(
+      '.arena-fighters-name--right',
+    ).children;
+    [this.leftFighterHealthElement] = document.querySelector(
+      '.arena-fighters-health--left',
+    ).children;
+    [this.rightFighterHealthElement] = document.querySelector(
+      '.arena-fighters-health--right',
+    ).children;
+    this.leftFighterNameElement.innerHTML = leftFighter.name;
+    this.rightFighterNameElement.innerHTML = rightFighter.name;
+    this.leftFighterHealthElement.innerHTML = `${leftFighter.health}%`;
+    this.rightFighterHealthElement.innerHTML = `${rightFighter.health}%`;
+  }
+
+  async showLeftFighterPunch(rightFighterHealth = 0) {
+    rightFighterHealth = rightFighterHealth > 0 ? rightFighterHealth : 0;
+    this.leftFighterImgContainer.classList.add('punch');
+    this.rightFighterImg.classList.add('damaged');
+    this.rightFighterHealthElement.innerHTML = `${Math.floor(
+      rightFighterHealth,
+    )}%`;
+    await wait(1200);
+    this.leftFighterImgContainer.classList.remove('punch');
+    this.rightFighterImg.classList.remove('damaged');
+  }
+
+  async showRightFighterPunch(leftFighterHealth = 0) {
+    leftFighterHealth = leftFighterHealth > 0 ? leftFighterHealth : 0;
+    this.rightFighterImgContainer.classList.add('punch');
+    this.leftFighterImg.classList.add('damaged');
+    this.leftFighterHealthElement.innerHTML = `${Math.floor(
+      leftFighterHealth,
+    )}%`;
+    await wait(1200);
+    this.rightFighterImgContainer.classList.remove('punch');
+    this.leftFighterImg.classList.remove('damaged');
   }
 
   async initArena() {
     View.toggleLoadingOverlay();
     this.createFighters();
     View.hideAll();
-    await wait(2000);
+    await wait(0);
     View.switchLayout('arena');
     View.toggleLoadingOverlay();
   }

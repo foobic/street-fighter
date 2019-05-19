@@ -7,6 +7,11 @@ class Fighter {
     this.source = source;
   }
 
+  isAlive() {
+    if (this.health <= 0) return false;
+    return true;
+  }
+
   getHitPower() {
     const criticalHitChance = Math.random() + 1;
     const power = this.attack * criticalHitChance;
