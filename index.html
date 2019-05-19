@@ -11,6 +11,11 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    <!-- <div id="arena" style="display: none;"> -->
+    <div id="arena">
+      ARENA
+      <div class="leftFighter"></div>
+    </div>
     <div id="root" style="display: none;">
       <div class="selectplayer">
         <div class="selectplayer-text">
@@ -18,26 +23,26 @@
         </div>
         <div class="selectplayer-controls">
           <div class="left">
-            <select class="select-css">
-              <option>Ryo</option>
-              <option>Dhalsim</option>
-              <option>Guile</option>
-              <option>Zangief</option>
-              <option>Ken</option>
-              <option>Bison</option>
+            <select class="select-css" id="left-fighter-select">
+              <option value="1">Ryo</option>
+              <option value="2">Dhalsim</option>
+              <option value="3">Guile</option>
+              <option value="4">Zangief</option>
+              <option value="5">Ken</option>
+              <option value="6">Bison</option>
             </select>
           </div>
           <div class="versus">
             <h1>VS</h1>
           </div>
           <div class="right">
-            <select class="select-css">
-              <option>Bison</option>
-              <option>Ken</option>
-              <option>Zangief</option>
-              <option>Guile</option>
-              <option>Dhalsim</option>
-              <option>Ryo</option>
+            <select class="select-css" id="right-fighter-select">
+              <option value="6">Bison</option>
+              <option value="5">Ken</option>
+              <option value="4">Zangief</option>
+              <option value="3">Guile</option>
+              <option value="2">Dhalsim</option>
+              <option value="1">Ryo</option>
             </select>
           </div>
         </div>
