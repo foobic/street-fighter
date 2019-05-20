@@ -1,11 +1,15 @@
-# stage-2-es6-for-everyone
+# Street Fighter
 
-## Instalation
+Simple street-fighter game simulator. Written in pure JS.
+
+## Installation
 
 `npm install`
+
+## Development
 
 `npm run build`
 
 `npm run start`
 
-open http://localhost:8080/
+Check `http://localhost:8080/`
