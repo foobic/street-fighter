@@ -8,8 +8,6 @@ class App {
     this.startApp();
   }
 
-  getSelectedFighters() {}
-
   async startApp() {
     try {
       View.toggleLoadingOverlay();
@@ -19,7 +17,7 @@ class App {
       const fightersElement = fightersView.element;
 
       View.containers.fighters.appendChild(fightersElement);
-      await wait(300);
+      await wait(1000);
       View.switchLayout('main');
     } catch (error) {
       console.warn(error);

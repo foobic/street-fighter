@@ -34,7 +34,9 @@ module.exports = {
   },
   mode: 'development',
   devServer: {
+    host: 'localhost',
     inline: true,
+    port: 8080,
   },
   devtool: 'source-map',
 };

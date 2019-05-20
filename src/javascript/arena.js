@@ -29,6 +29,17 @@ class Arena {
       this.rightFighterPunch();
       await this.view.showRightFighterPunch(this.leftFighter.health);
     }
+    if (this.leftFighter.isAlive()) {
+      await this.view.showWinner(
+        this.leftFighter.name,
+        this.leftFighter.source,
+      );
+    } else {
+      await this.view.showWinner(
+        this.rightFighter.name,
+        this.rightFighter.source,
+      );
+    }
   }
 }
 

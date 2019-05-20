@@ -7,6 +7,8 @@ class ArenaView extends View {
     this.leftFighter = leftFighter;
     this.rightFighter = rightFighter;
     this.initArena();
+    this.arena = document.querySelector('.arena');
+    this.arenaWinner = document.querySelector('.arena-winner');
     this.leftFighterImgContainer = document.querySelector(
       '.arena-fighters-left--img',
     );
@@ -33,11 +35,37 @@ class ArenaView extends View {
     this.rightFighterHealthElement.innerHTML = `${rightFighter.health}%`;
   }
 
+  hideFighters() {
+    this.leftFighterImg.classList.add('hide-block');
+    this.rightFighterImg.classList.add('hide-block');
+    this.leftFighterNameElement.classList.add('hide-block');
+    this.rightFighterNameElement.classList.add('hide-block');
+    this.leftFighterHealthElement.classList.add('hide-block');
+    this.rightFighterHealthElement.classList.add('hide-block');
+  }
+
+  async showWinner(name, source) {
+    View.toggleLoadingOverlay();
+    await wait(1500);
+    const [winnerNameElement] = document.querySelector(
+      '.arena-winner-name',
+    ).children;
+    const winnerImgWrapper = document.querySelector(
+      '.arena-winner-img-wrapper',
+    );
+    winnerNameElement.innerHTML = name;
+    winnerImgWrapper.appendChild(this.createImage(source));
+    this.hideFighters();
+    this.arena.classList.remove('show-arena');
+    this.arenaWinner.classList.add('show-arena-winner');
+    View.toggleLoadingOverlay();
+  }
+
   async showLeftFighterPunch(rightFighterHealth = 0) {
     rightFighterHealth = rightFighterHealth > 0 ? rightFighterHealth : 0;
     this.leftFighterImgContainer.classList.add('punch');
     this.rightFighterImg.classList.add('damaged');
-    this.rightFighterHealthElement.innerHTML = `${Math.floor(
+    this.rightFighterHealthElement.innerHTML = `${Math.round(
       rightFighterHealth,
     )}%`;
     await wait(1200);
@@ -49,7 +77,7 @@ class ArenaView extends View {
     leftFighterHealth = leftFighterHealth > 0 ? leftFighterHealth : 0;
     this.rightFighterImgContainer.classList.add('punch');
     this.leftFighterImg.classList.add('damaged');
-    this.leftFighterHealthElement.innerHTML = `${Math.floor(
+    this.leftFighterHealthElement.innerHTML = `${Math.round(
       leftFighterHealth,
     )}%`;
     await wait(1200);
@@ -61,7 +89,7 @@ class ArenaView extends View {
     View.toggleLoadingOverlay();
     this.createFighters();
     View.hideAll();
-    await wait(0);
+    await wait(1500);
     View.switchLayout('arena');
     View.toggleLoadingOverlay();
   }
