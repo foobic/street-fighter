@@ -45,6 +45,7 @@ class ArenaView extends View {
   }
 
   async showWinner(name, source) {
+    this.hideFighters();
     View.toggleLoadingOverlay();
     await wait(1500);
     const [winnerNameElement] = document.querySelector(
@@ -55,7 +56,6 @@ class ArenaView extends View {
     );
     winnerNameElement.innerHTML = name;
     winnerImgWrapper.appendChild(this.createImage(source));
-    this.hideFighters();
     this.arena.classList.remove('show-arena');
     this.arenaWinner.classList.add('show-arena-winner');
     View.toggleLoadingOverlay();

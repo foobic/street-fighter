@@ -1,5 +1,3 @@
-import { wait } from './helpers/helper';
-
 class View {
   element;
 

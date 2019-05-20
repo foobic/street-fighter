@@ -18,12 +18,11 @@ class App {
 
       View.containers.fighters.appendChild(fightersElement);
       await wait(1000);
-      View.switchLayout('main');
     } catch (error) {
       console.warn(error);
-      View.switchLayout('main');
       View.layouts.main.innerText = 'Failed to load data';
     } finally {
+      View.switchLayout('main');
       View.toggleLoadingOverlay();
     }
   }
