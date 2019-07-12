@@ -1,7 +1,10 @@
 const path = require('path');
 
 module.exports = {
-  entry: './index.js',
+  entry: './index.ts',
+  resolve: {
+    extensions: [ '.tsx', '.ts', '.js' ]
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
@@ -9,6 +12,11 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/
+      },
       {
         test: /\.(png|jpg)$/,
         loader: 'url-loader',
